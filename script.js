@@ -57,4 +57,10 @@ sjSelect.addEventListener("change", async () => {
 
     tableBody.appendChild(tr);
   });
+
 });
+
+console.log("Supabase test start");
+
+const test = await supabase.from("picking").select("*");
+console.log(test);
