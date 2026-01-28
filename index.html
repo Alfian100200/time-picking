@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Time Picking</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <h2>Time Picking</h2>
+
+  <label>No Surat Jalan</label>
+  <select id="sjSelect">
+    <option value="">-- Pilih Surat Jalan --</option>
+  </select>
+
+  <p><strong>Nama Pos:</strong> <span id="namaPos">-</span></p>
+
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>SKU</th>
+        <th>Varian</th>
+        <th>Qty Plan</th>
+        <th>Qty Pick</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+</body>
+</html>
