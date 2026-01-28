@@ -1,14 +1,20 @@
 // 1. KONEKSI SUPABASE
 const supabaseUrl = "https://rbprbhmzgnusugavfkav.supabase.co";
 const supabaseKey = "sb_publishable_R7r9sY6csHPpjN7D0OUZVA_NzQEru2o";
-const supabase = supabasejs.createClient(supabaseUrl, supabaseKey);
+const client = supabase.createClient(supabaseUrl, supabaseKey);
 
+// ================================
 // 2. ELEMEN HTML
+// ================================
 const sjSelect = document.getElementById("sjSelect");
 const namaPos = document.getElementById("namaPos");
 const tableBody = document.getElementById("tableBody");
+
 console.log("Script loaded");
+
+// ================================
 // 3. LOAD DROPDOWN NO SURAT JALAN
+// ================================
 async function loadSuratJalan() {
   const { data, error } = await client
     .from("picking")
@@ -35,7 +41,7 @@ async function loadSuratJalan() {
 }
 
 // ================================
-// SAAT DROPDOWN DIPILIH
+// 4. SAAT DROPDOWN DIPILIH
 // ================================
 sjSelect.addEventListener("change", async function () {
   tableBody.innerHTML = "";
@@ -72,7 +78,7 @@ sjSelect.addEventListener("change", async function () {
 });
 
 // ================================
-// JALANKAN SAAT HALAMAN SIAP
+// 5. JALANKAN SAAT HALAMAN SIAP
 // ================================
 document.addEventListener("DOMContentLoaded", function () {
   loadSuratJalan();
