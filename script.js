@@ -16,12 +16,7 @@ async function loadSuratJalan() {
     .select("no_surat_jalan");
 
   if (error) {
-    console.error("Supabase error:", error);
-    return;
-  }
-
-  if (!data || data.length === 0) {
-    console.log("Data kosong");
+    console.error(error);
     return;
   }
 
@@ -34,4 +29,7 @@ async function loadSuratJalan() {
     sjSelect.appendChild(opt);
   });
 }
+
+loadSuratJalan();
+
 
