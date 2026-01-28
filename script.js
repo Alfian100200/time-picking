@@ -10,7 +10,7 @@ const tableBody = document.getElementById("tableBody");
 console.log("Script loaded");
 // 3. LOAD DROPDOWN NO SURAT JALAN
 async function loadSuratJalan() {
-  const { data, error } = await supabase
+  const { data, error } = await client
     .from("picking")
     .select("no_surat_jalan");
 
@@ -43,7 +43,7 @@ sjSelect.addEventListener("change", async function () {
 
   if (!sjSelect.value) return;
 
-  const { data, error } = await supabase
+  const { data, error } = await client
     .from("picking")
     .select("*")
     .eq("no_surat_jalan", sjSelect.value);
@@ -77,6 +77,7 @@ sjSelect.addEventListener("change", async function () {
 document.addEventListener("DOMContentLoaded", function () {
   loadSuratJalan();
 });
+
 
 
 
