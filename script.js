@@ -15,12 +15,12 @@ async function loadSuratJalan() {
     .select("no_surat_jalan");
 
   if (error) {
-    console.error("Error ambil surat jalan:", error);
+    console.error("Error ambil SJ:", error);
     return;
   }
 
   if (!data || data.length === 0) {
-    console.log("Data picking kosong");
+    console.log("Data kosong");
     return;
   }
 
@@ -34,12 +34,10 @@ async function loadSuratJalan() {
   });
 }
 
-await loadSuratJalan();
-
 // ================================
-// SAAT SURAT JALAN DIPILIH
+// SAAT DROPDOWN DIPILIH
 // ================================
-sjSelect.addEventListener("change", async () => {
+sjSelect.addEventListener("change", async function () {
   tableBody.innerHTML = "";
   namaPos.textContent = "-";
 
@@ -51,7 +49,7 @@ sjSelect.addEventListener("change", async () => {
     .eq("no_surat_jalan", sjSelect.value);
 
   if (error) {
-    console.error("Error ambil detail picking:", error);
+    console.error("Error ambil detail:", error);
     return;
   }
 
@@ -61,21 +59,24 @@ sjSelect.addEventListener("change", async () => {
 
   data.forEach(row => {
     const tr = document.createElement("tr");
-
     tr.innerHTML = `
       <td>${row.sku}</td>
       <td>${row.nama_varian}</td>
       <td>${row.qty_plan}</td>
       <td>
-        <input type="number" value="${row.qty_pick ?? ""}" />
+        <input type="number" value="${row.qty_pick ?? ""}">
       </td>
     `;
-
     tableBody.appendChild(tr);
   });
 });
 
-loadSuratJalan();
+// ================================
+// JALANKAN SAAT HALAMAN SIAP
+// ================================
+document.addEventListener("DOMContentLoaded", function () {
+  loadSuratJalan();
+});
 
 
 
