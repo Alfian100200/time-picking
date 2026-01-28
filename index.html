@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Time Picking</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script defer src="script.js"></script>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Script utama (PAKAI MODULE) -->
+  <script type="module" src="script.js"></script>
 </head>
 <body>
 
   <h2>Time Picking</h2>
 
-  <label>No Surat Jalan</label>
+  <label>No Surat Jalan</label><br />
   <select id="sjSelect">
     <option value="">-- Pilih Surat Jalan --</option>
   </select>
 
-  <p><strong>Nama Pos:</strong> <span id="namaPos">-</span></p>
+  <p>
+    <strong>Nama Pos:</strong>
+    <span id="namaPos">-</span>
+  </p>
 
   <table border="1" cellpadding="8">
     <thead>
